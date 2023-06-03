@@ -1,0 +1,29 @@
+{% extends 'layout.twig' %}
+
+
+{% block body %}
+
+
+    <div class="container">
+        <h1>Dashboard</h1>
+            <div class="d-grid gap-2">
+                <button class="btn btn-lg btn-primary" type="button" id="btnStart">Start</button>
+                <button class="btn btn-lg btn-danger" type="button" id="btnStop">Stop</button>
+            </div>
+        <br>
+	<div>
+            <canvas id="myChart"></canvas>
+        </div>
+	
+
+    </div> 
+{% endblock %}
+{% block scripts %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<script src="javascripts/data.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+{% endblock %}

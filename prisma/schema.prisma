@@ -1,0 +1,30 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Block {
+  idBlock Int      @id @unique(map: "idBlock_UNIQUE") @default(autoincrement())
+  time    DateTime @default(now()) @db.Timestamp(0)
+  color   String   @db.VarChar(10)
+}
+
+model History {
+  idHistory Int  @id @default(autoincrement())
+  r_tot     Int?
+  g_tot     Int?
+  b_tot     Int?
+  y_tot     Int?
+  o_tot     Int?
+}
+
+model Trial {
+  idTrial           Int @id @default(autoincrement())
+  History_idHistory Int
+
+  @@index([History_idHistory], map: "History_idHistory")
+}

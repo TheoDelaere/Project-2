@@ -1,0 +1,44 @@
+{% extends 'layout.twig' %}
+
+{% block stylesheet %}
+<link href="https://cdn.datatables.net/v/dt/dt-1.13.4/datatables.min.css" rel="stylesheet"/>
+{% endblock stylesheet %}
+
+{% block scripts %}
+<script src="https://cdn.datatables.net/v/dt/dt-1.13.4/datatables.min.js"></script>
+<script defer src="/javascripts/dataTable.js"></script>
+{% endblock scripts %}
+
+{% block body %}
+<div class="container">
+    <h1>History</h1>
+    <p>
+        All sequences found in the database are in the table below.
+    </p>
+    <table class="table table-responsive table-striped text-center" id="myTable">
+        <thead class="table-primary">
+            <tr>
+                <th>Id</th>
+                <th class="text-light">Y</th>
+                <th class="text-warning">O</th>
+                <th class="text-danger">R</th>
+                <th class="text-success">G</th>
+                <th class="text-secondary ">B</th> 
+            </tr>
+        </thead>
+        <tbody id="table-body">
+            {% for data in historyData %}
+            <tr>
+                <td>{{ data.idHistory }}</td>
+                <td class="table-light">{{ data.y_tot }}</td>
+                <td class="table-warning">{{ data.o_tot }}</td>
+                <td class="table-danger">{{ data.r_tot }}</td>
+                <td class="table-success">{{ data.g_tot }}</td>
+                <td class="table-dark">{{ data.b_tot }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock body %}
